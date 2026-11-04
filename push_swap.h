@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
@@ -26,7 +27,9 @@ typedef struct stack
 	struct stack	*previous;
 }					stack_list;
 
-size_t	ft_strlen(const char *s);
-void	error(char *er);
+stack_list	*ft_stacknew(int content, stack_list *prev);
+int			wcount(char const *s, char c);
+size_t		ft_strlen(const char *s);
+void		error(char *er);
 
 #endif
