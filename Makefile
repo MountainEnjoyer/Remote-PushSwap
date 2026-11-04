@@ -31,11 +31,11 @@ $(NAME): $(LIB) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -I $(LIB) -o $(NAME)
 
 clean:
-	$(LIB) clean
+	$(MAKE) -C $(LIBDIR) clean
 	$(RM) -f $(OBJ)
 
 fclean: clean
-	$(LIB) fclean
+	$(MAKE) -C $(LIBDIR) fclean
 	$(RM) -f $(NAME)
 
 re: fclean all

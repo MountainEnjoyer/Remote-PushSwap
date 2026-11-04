@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <string.h>
 
-typedef stuct stack
+typedef struct stack
 {
 	int				content;
 	int				index;
