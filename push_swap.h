@@ -16,6 +16,14 @@
 # include <stddef.h>
 # include <string.h>
 
+typedef stuct stack
+{
+	int				content;
+	int				index;
+	struct stack	*next;
+	struct stack	*previous;
+}					stack_list;
+
 size_t	ft_strlen(const char *s);
 void	error(char *er);
 
