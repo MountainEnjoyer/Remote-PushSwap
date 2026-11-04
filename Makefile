@@ -28,11 +28,13 @@ $(LIB):
 	$(MAKE) -C $(LIBDIR)
 
 $(NAME): $(LIB) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -I $(LIB) -o $(NAME)
+	cp $(LIB) .
+	ar rc libft.a libftprintf.a
+	$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) libftprintf.a -o $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBDIR) clean
-	$(RM) -f $(OBJ)
+	$(RM) -f $(OBJ) libft.a
 
 fclean: clean
 	$(MAKE) -C $(LIBDIR) fclean
