@@ -12,7 +12,18 @@
 
 #include "push_swap.h"
 
+static int	ft_parser(char *stack_a, char *strat)
+{
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
-
+	if (ac == 2)
+		if (!ft_parser(av[1], ""))
+			return (-1);
+	else if (ac == 3)
+		if (!ft_parser(av[1], av[2]))
+			return (-1);
+	return (0);
 }
