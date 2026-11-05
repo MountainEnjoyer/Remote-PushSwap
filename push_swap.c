@@ -15,7 +15,7 @@
 static int	flag_verif(s_stack **head_a, char **flags_to_verif)
 {
 	head_a = NULL;
-	ft_printf("flags = %s", fetch_flag(flags_to_verif));
+	ft_printf("flags = %s\n", fetch_flag(flags_to_verif));
 	return (0);
 }
 
@@ -26,6 +26,7 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 	s_stack	*actual;
 	int		i;
 
+	i = 0;
 	actual = NULL;
 	i = (lenght - 1);
 	while (i >= 0)
@@ -41,6 +42,12 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 	head = &actual;
 	if (flag_verif(head, av))
 		return (error(), 1);
+	i = 0;
+	while (stack_a[i])
+	{
+		ft_printf("arr in split = %s %d\n", stack_a[i], i);
+		i++;
+	}
 	return (0);
 }
 
@@ -51,24 +58,22 @@ static char	*concat(char **arg)
 	size_t	k;
 	char	*arr;
 
-	arr = malloc(sizeof(char) * (ft_strstrlen((const char **)arg) * 2) + 1);
+	arr = ft_calloc((ft_strstrlen((const char **)arg) * 2 + 2), sizeof(char));
 	if (!arr)
 		return (error(), NULL);
 	i = 0;
 	k = 0;
 	while (arg[i])
 	{
-		j = 0;
-		while (arg[i][j])
+		j = -1;
+		while (arg[i][++j])
 		{
 			arr[k] = arg[i][j];
-			arr[k + 1] = ' ';
-			j++;
-			k += 2;
+			k++;
 		}
+		arr[k++] = ' ';
 		i++;
 	}
-	arr[k] = '\0';
 	return (arr);
 }
 
@@ -99,21 +104,19 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (error(), 1);
 	if (ac == 2)
-		if (ft_parser(ft_split(av[1], ' '), wcount(av[1], ' '), av))
+		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
 			return (1);
 	if (ac == 3)
-		if (ft_parser(ft_split(av[2], ' '), wcount(av[2], ' '), av))
+		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
 			return (1);
 	if (ac == 4)
-		if (ft_parser(ft_split(av[3], ' '), wcount(av[3], ' '), av))
+		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
 			return (1);
 	if (ac > 4)
 	{
 		if (!verif(&av[1]))
 			return (1);
-		if ()
-		
-		if (ft_parser(ft_split(concat(&av[1]), ' '), verif(&av[1]), av))
+		if (ft_parser(ft_split(concat(locate_v(av)), ' '), verif(locate_v(av)), av))
 			return (1);
 	}
 	return (0);

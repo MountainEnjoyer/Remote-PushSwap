@@ -27,12 +27,14 @@ typedef struct t_stack
 	struct t_stack	*previous;
 }					s_stack;
 
-s_stack	*ft_stacknew(int content, s_stack *prev);
+s_stack		*ft_stacknew(int content, s_stack *prev);
 int			wcount(char const *s, char c);
 size_t		ft_strlen(const char *s);
 size_t		ft_strstrlen(const char **s);
 void		error(void);
-char	*fetch_flag(char **verifs);
-int		len_flag(char **flag);
+char		*fetch_flag(char **verifs);
+int			len_flag(char **flag);
+char		*locate(char **av);
+char		**locate_v(char **av);
 
 #endif

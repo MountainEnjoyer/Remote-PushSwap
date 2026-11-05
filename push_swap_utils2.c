@@ -12,6 +12,46 @@
 
 #include "push_swap.h"
 
+char	**locate_v(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (ft_isdigit(av[i][j]))
+				return (&av[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+char	*locate(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (ft_isdigit(av[i][j]))
+				return (av[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
 int	len_flag(char **flag)
 {
 	int	i;
