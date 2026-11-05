@@ -13,9 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
+# include <stdint.h>
 # include <stddef.h>
 # include <string.h>
-# include "ft_printf.h"
 
 typedef struct s_list
 {
@@ -23,6 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+int				ft_printf(const char *format, ...);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_isprint(int c);
