@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-stack_list	*ft_stacknew(int content, stack_list *prev)
+s_stack	*ft_stacknew(int content, s_stack *prev)
 {
-	stack_list	*new_list;
+	s_stack	*new_list;
 
-	new_list = malloc(sizeof(stack_list));
+	new_list = malloc(sizeof(s_stack));
 	if (!new_list)
 		return (NULL);
 	new_list->content = content;
@@ -45,6 +45,22 @@ int	wcount(char const *s, char c)
 	}
 	return (count);
 }
+
+size_t	ft_strstrlen(const char **s)
+{
+	size_t	i;
+	size_t	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		count += ft_strlen(s[i]);
+		i++;
+	}
+	return (count);
+}
+
 
 size_t	ft_strlen(const char *s)
 {
