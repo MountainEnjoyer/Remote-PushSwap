@@ -43,7 +43,7 @@ char	*fetch_flag(char **verifs)
 	int		j;
 	int		k;
 
-	flags = malloc(sizeof(char) * len_flag(verifs));
+	flags = ft_calloc(len_flag(verifs), sizeof(char));
 	i = 0;
 	k = 0;
 	while (verifs[i])

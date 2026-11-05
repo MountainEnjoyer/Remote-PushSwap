@@ -99,22 +99,22 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (error(), 1);
 	if (ac == 2)
-	{
 		if (ft_parser(ft_split(av[1], ' '), wcount(av[1], ' '), av))
 			return (1);
-	}
-	else if (ac == 3)
-	{
+	if (ac == 3)
 		if (ft_parser(ft_split(av[2], ' '), wcount(av[2], ' '), av))
 			return (1);
-	}
-	else if (ac > 3)
+	if (ac == 4)
+		if (ft_parser(ft_split(av[3], ' '), wcount(av[3], ' '), av))
+			return (1);
+	if (ac > 4)
 	{
 		if (!verif(&av[1]))
 			return (1);
-		else
-			if (ft_parser(ft_split(concat(&av[1]), ' '), verif(&av[1]), av))
-				return (1);
+		if ()
+		
+		if (ft_parser(ft_split(concat(&av[1]), ' '), verif(&av[1]), av))
+			return (1);
 	}
 	return (0);
 }
