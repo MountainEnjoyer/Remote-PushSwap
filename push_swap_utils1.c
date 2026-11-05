@@ -56,7 +56,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	error(char *er)
+void	error(void)
 {
-	write(2, er, ft_strlen((const char *) er));
+	write(2, "Error\n", 6);
 }

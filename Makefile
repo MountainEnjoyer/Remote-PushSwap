@@ -29,8 +29,7 @@ $(LIB):
 
 $(NAME): $(LIB) $(OBJ)
 	cp $(LIB) .
-	ar rc libft.a libftprintf.a
-	$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) libftprintf.a -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -L$(LIBDIR) libft.a -o $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBDIR) clean

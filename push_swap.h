@@ -30,6 +30,6 @@ typedef struct stack
 stack_list	*ft_stacknew(int content, stack_list *prev);
 int			wcount(char const *s, char c);
 size_t		ft_strlen(const char *s);
-void		error(char *er);
+void		error(void);
 
 #endif
