@@ -19,17 +19,20 @@
 # include <stddef.h>
 # include <string.h>
 
-typedef struct stack
+typedef struct t_stack
 {
 	int				content;
 	int				index;
-	struct stack	*next;
-	struct stack	*previous;
-}					stack_list;
+	struct t_stack	*next;
+	struct t_stack	*previous;
+}					s_stack;
 
-stack_list	*ft_stacknew(int content, stack_list *prev);
+s_stack	*ft_stacknew(int content, s_stack *prev);
 int			wcount(char const *s, char c);
 size_t		ft_strlen(const char *s);
+size_t		ft_strstrlen(const char **s);
 void		error(void);
+char	*fetch_flag(char **verifs);
+int		len_flag(char **flag);
 
 #endif

@@ -18,7 +18,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = push_swap.c \
-	  push_swap_utils1.c
+	  push_swap_utils1.c \
+	  push_swap_utils2.c
 
 OBJ = $(SRC:.c=.o)
 
