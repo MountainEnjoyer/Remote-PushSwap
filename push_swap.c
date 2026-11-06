@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/04 20:19:18 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/06 14:41:00 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,36 @@
 
 static int	flag_verif(s_stack **head_a, char **flags_to_verif)
 {
-	head_a = NULL;
+	while (*head_a)
+	{
+		ft_printf("head_a int value = %d\n", (*head_a)->content);
+		*head_a = (*head_a)->previous;
+	}
 	ft_printf("flags = %s\n", fetch_flag(flags_to_verif));
 	return (0);
 }
 
 static int	ft_parser(char **stack_a, int lenght, char **av)
 {
-	s_stack	*last;
 	s_stack	**head;
+	s_stack	*prev;
 	s_stack	*actual;
+	s_stack	*next;
 	int		i;
 
-	i = 0;
 	actual = NULL;
-	i = (lenght - 1);
-	while (i >= 0)
+	i = (lenght);
+	while (i-- >= 0)
 	{
 		actual = ft_stacknew(ft_atoi(stack_a[i]), actual);
+		actual->previous = prev;
+		prev->next = actual;
 		if (!actual)
 			return (error(), -1);
-		if (i == (lenght - 1))
-			last = actual;
-		i--;
 	}
-	actual->previous = last;
 	head = &actual;
 	if (flag_verif(head, av))
 		return (error(), 1);
-	i = 0;
-	while (stack_a[i])
-	{
-		ft_printf("arr in split = %s %d\n", stack_a[i], i);
-		i++;
-	}
 	return (0);
 }
 
