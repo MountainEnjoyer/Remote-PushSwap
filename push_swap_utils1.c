@@ -6,23 +6,24 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:01:07 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/04 17:02:55 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/11/07 14:52:41 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_stack	*ft_stacknew(int content, s_stack *prev)
+t_stack	*ft_stacknew(t_stack *head, int content)
 {
-	s_stack	*new_list;
+	t_stack	*temp;
 
-	new_list = malloc(sizeof(s_stack));
-	if (!new_list)
+	temp = malloc(sizeof(t_stack));
+	if (!temp)
 		return (NULL);
-	new_list->content = content;
-	new_list->previous = prev;
-	new_list->next = NULL;
-	return (new_list);
+	temp->content = content;
+	temp->previous = NULL;
+	temp->next = NULL;
+	head = temp;
+	return (head);
 }
 
 int	wcount(char const *s, char c)

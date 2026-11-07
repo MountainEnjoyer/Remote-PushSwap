@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/04 17:04:55 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/11/07 14:53:46 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@
 # include <stddef.h>
 # include <string.h>
 
-typedef struct t_stack
+typedef struct s_stack
 {
 	int				content;
 	int				index;
-	struct t_stack	*next;
-	struct t_stack	*previous;
-}					s_stack;
+	struct s_stack	*next;
+	struct s_stack	*previous;
+}					t_stack;
 
-s_stack		*ft_stacknew(int content, s_stack *prev);
+t_stack		*insert_tail(t_stack *tail, int data);
+t_stack		*insert_head(t_stack *head, int data);
+t_stack		*ft_stacknew(t_stack *head, int content);
 int			wcount(char const *s, char c);
 size_t		ft_strlen(const char *s);
 size_t		ft_strstrlen(const char **s);

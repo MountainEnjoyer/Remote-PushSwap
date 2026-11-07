@@ -6,18 +6,31 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/06 14:41:00 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/07 15:05:33 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	flag_verif(s_stack **head_a, char **flags_to_verif)
+static int	flag_verif(t_stack *head_a, char **flags_to_verif)
 {
-	while (*head_a)
+	t_stack	*tmp;
+
+	tmp = head_a;
+	while (tmp != NULL)
 	{
-		ft_printf("head_a int value = %d\n", (*head_a)->content);
-		*head_a = (*head_a)->previous;
+		ft_printf("head_a int value = %d\n", tmp->content);
+		if (tmp->next == NULL)
+		{
+			tmp = tmp->previous;
+			break ;
+		}
+		tmp = tmp->next;
+	}
+	while (tmp != NULL)
+	{
+		ft_printf("head_a int value = %d\n", tmp->content);
+		tmp = tmp->previous;
 	}
 	ft_printf("flags = %s\n", fetch_flag(flags_to_verif));
 	return (0);
@@ -25,23 +38,19 @@ static int	flag_verif(s_stack **head_a, char **flags_to_verif)
 
 static int	ft_parser(char **stack_a, int lenght, char **av)
 {
-	s_stack	**head;
-	s_stack	*prev;
-	s_stack	*actual;
-	s_stack	*next;
+	t_stack	*head;
 	int		i;
 
-	actual = NULL;
-	i = (lenght);
-	while (i-- >= 0)
+	head = NULL;
+	head = ft_stacknew(head, ft_atoi(stack_a[0]));
+	i = 1;
+	while (i < lenght)
 	{
-		actual = ft_stacknew(ft_atoi(stack_a[i]), actual);
-		actual->previous = prev;
-		prev->next = actual;
-		if (!actual)
+		head = insert_tail(head, ft_atoi(stack_a[i]));
+		if (!head)
 			return (error(), -1);
+		i++;
 	}
-	head = &actual;
 	if (flag_verif(head, av))
 		return (error(), 1);
 	return (0);
