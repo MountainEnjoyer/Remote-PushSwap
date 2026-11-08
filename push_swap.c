@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/07 15:05:33 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/07 21:21:14 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 	{
 		head = insert_tail(head, ft_atoi(stack_a[i]));
 		if (!head)
-			return (error(), -1);
+			return (error(), 1);
 		i++;
 	}
 	if (flag_verif(head, av))
@@ -94,7 +94,7 @@ static int	verif(char **arg)
 		while (arg[i][j])
 		{
 			if (arg[i][0] == '-')
-				break;
+				break ;
 			else if (!ft_isdigit(arg[i][j]) || ft_isalpha(arg[i][j]))
 				return (error(), -1);
 			j++;
@@ -119,7 +119,7 @@ int	main(int ac, char **av)
 			return (1);
 	if (ac > 4)
 	{
-		if (!verif(&av[1]))
+		if (verif(&av[1]) <= 0)
 			return (1);
 		if (ft_parser(ft_split(concat(locate_v(av)), ' '), verif(locate_v(av)), av))
 			return (1);
