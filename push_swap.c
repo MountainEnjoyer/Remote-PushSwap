@@ -12,28 +12,66 @@
 
 #include "push_swap.h"
 
-static int	flag_verif(t_stack *head_a, char **flags_to_verif)
+static int	verif(char **arg)
 {
-	t_stack	*tmp;
+	int	i;
+	int	j;
+	int	k;
 
-	tmp = head_a;
-	while (tmp != NULL)
+	i = 0;
+	while (arg[i])
 	{
-		ft_printf("head_a int value = %d\n", tmp->content);
-		if (tmp->next == NULL)
+		j = 0;
+		while (arg[i][j])
 		{
-			tmp = tmp->previous;
-			break ;
+			if (arg[i][0] == '-')
+				break ;
+			else if (!ft_isdigit(arg[i][j]) || ft_isalpha(arg[i][j]))
+				return (error(), -1);
+			else
+			{
+				k = -1;
+				while (arg[k++])
+				{
+					if (i == k)
+						break ;
+					if (!ft_strncmp(arg[i], arg[k], ft_strlen(arg[i]) + 1))
+						return (error(), -1);
+				}
+			}
+			j++;
 		}
-		tmp = tmp->next;
+		i++;
 	}
-	while (tmp != NULL)
+	return (i);
+}
+
+static int	flag_verif(char **flags_to_verif)
+{
+	char	**flags;
+	int		i;
+	int		check;
+
+	flags = fetch_flag(flags_to_verif);
+	i = 0;
+	check = 0;
+	while (flags[i])
 	{
-		ft_printf("head_a int value = %d\n", tmp->content);
-		tmp = tmp->previous;
+		if (!ft_strncmp(flags[i], "simple\0", 6))
+			ft_printf("simple flag\n");
+		else if (!ft_strncmp(flags[i], "medium", 6))
+			ft_printf("medium flag\n");
+		else if (!ft_strncmp(flags[i], "complex", 7))
+			ft_printf("complex flag\n");
+		else if (!ft_strncmp(flags[i], "adaptative", 10))
+			ft_printf("adaptative flag\n");
+		else if (!ft_strncmp(flags[i], "bench", 5))
+			ft_printf("bench flag\n");
+		else
+			return (-1);
+		i++;
 	}
-	ft_printf("flags = %s\n", fetch_flag(flags_to_verif));
-	return (0);
+	return (i);
 }
 
 static int	ft_parser(char **stack_a, int lenght, char **av)
@@ -41,6 +79,8 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 	t_stack	*head;
 	int		i;
 
+	if (flag_verif(av) < 0 || verif(stack_a) < 0)
+		return (error(), 1);
 	head = NULL;
 	head = ft_stacknew(head, ft_atoi(stack_a[0]));
 	i = 1;
@@ -51,8 +91,24 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 			return (error(), 1);
 		i++;
 	}
-	if (flag_verif(head, av))
-		return (error(), 1);
+	t_stack	*tmp;
+
+	tmp = head;
+	while (tmp != NULL)
+	{
+		ft_printf("head_a int value from top = %d\n", tmp->content);
+		if (tmp->next == NULL)
+		{
+			tmp = tmp->previous;
+			break ;
+		}
+		tmp = tmp->next;
+	}
+	while (tmp != NULL)
+	{
+		ft_printf("head_a int value from bott = %d\n", tmp->content);
+		tmp = tmp->previous;
+	}
 	return (0);
 }
 
@@ -80,28 +136,6 @@ static char	*concat(char **arg)
 		i++;
 	}
 	return (arr);
-}
-
-static int	verif(char **arg)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (arg[i])
-	{
-		j = 0;
-		while (arg[i][j])
-		{
-			if (arg[i][0] == '-')
-				break ;
-			else if (!ft_isdigit(arg[i][j]) || ft_isalpha(arg[i][j]))
-				return (error(), -1);
-			j++;
-		}
-		i++;
-	}
-	return (i);
 }
 
 int	main(int ac, char **av)

@@ -74,5 +74,6 @@ int				ft_putunbr_fd(unsigned int n, int fd);
 int				ft_putnbr(int n);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+int				ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -94,7 +94,7 @@ int	len_flag(char **flag)
 	return (count);
 }
 
-char	*fetch_flag(char **verifs)
+char	**fetch_flag(char **verifs)
 {
 	char	*flags;
 	int		i;
@@ -119,5 +119,5 @@ char	*fetch_flag(char **verifs)
 		i++;
 	}
 	flags[k] = '\0';
-	return (flags);
+	return (ft_split(flags, '-'));
 }

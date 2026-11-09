@@ -34,7 +34,7 @@ int			wcount(char const *s, char c);
 size_t		ft_strlen(const char *s);
 size_t		ft_strstrlen(const char **s);
 void		error(void);
-char		*fetch_flag(char **verifs);
+char		**fetch_flag(char **verifs);
 int			len_flag(char **flag);
 char		*locate(char **av);
 char		**locate_v(char **av);
