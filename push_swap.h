@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/07 14:53:46 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/09 11:43:01 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ char		*fetch_flag(char **verifs);
 int			len_flag(char **flag);
 char		*locate(char **av);
 char		**locate_v(char **av);
+int			count_flag(char **flag);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:59:46 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/05 16:59:46 by zchauve          ###   ########.fr       */
+/*   Updated: 2026/11/09 11:41:47 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,24 @@ char	*locate(char **av)
 		i++;
 	}
 	return (NULL);
+}
+
+int	count_flag(char **flag)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (flag[i])
+	{
+		j = 0;
+		if (flag[i][j] == '-' && flag[i][j + 1] == '-')
+			count++;
+		i++;
+	}
+	return (count);
 }
 
 int	len_flag(char **flag)

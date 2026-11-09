@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/07 21:21:14 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/09 11:42:42 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,12 @@ int	main(int ac, char **av)
 {
 	if (ac == 1)
 		return (error(), 1);
-	if (ac == 2)
+	if ((ac - count_flag(av)) == 2)
+	{
 		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
 			return (1);
-	if (ac == 3)
-		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
-			return (1);
-	if (ac == 4)
-		if (ft_parser(ft_split(locate(av), ' '), wcount(locate(av), ' '), av))
-			return (1);
-	if (ac > 4)
+	}
+	else if (locate_v(av) != NULL)
 	{
 		if (verif(&av[1]) <= 0)
 			return (1);
