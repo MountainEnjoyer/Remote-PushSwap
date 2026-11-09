@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/09 11:42:42 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/09 20:29:31 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static int	verif(char **arg)
 	int	j;
 	int	k;
 
-	i = 0;
-	while (arg[i])
+	i = -1;
+	while (arg[++i])
 	{
-		j = 0;
-		while (arg[i][j])
+		j = -1;
+		while (arg[i][++j])
 		{
 			if (arg[i][0] == '-')
 				break ;
@@ -31,17 +31,12 @@ static int	verif(char **arg)
 			else
 			{
 				k = -1;
-				while (arg[k++])
-				{
-					if (i == k)
-						break ;
-					if (!ft_strncmp(arg[i], arg[k], ft_strlen(arg[i]) + 1))
+				while (arg[++k])
+					if (i != k
+						&& !ft_strncmp(arg[i], arg[k], ft_strlen(arg[i]) + 1))
 						return (error(), -1);
-				}
 			}
-			j++;
 		}
-		i++;
 	}
 	return (i);
 }
@@ -50,14 +45,14 @@ static int	flag_verif(char **flags_to_verif)
 {
 	char	**flags;
 	int		i;
-	int		check;
 
 	flags = fetch_flag(flags_to_verif);
+	if (!flags)
+		return (-1);
 	i = 0;
-	check = 0;
 	while (flags[i])
 	{
-		if (!ft_strncmp(flags[i], "simple\0", 6))
+		if (!ft_strncmp(flags[i], "simple", 6))
 			ft_printf("simple flag\n");
 		else if (!ft_strncmp(flags[i], "medium", 6))
 			ft_printf("medium flag\n");
@@ -140,7 +135,7 @@ static char	*concat(char **arg)
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
+	if (ac == 1 || ac == 2)
 		return (error(), 1);
 	if ((ac - count_flag(av)) == 2)
 	{

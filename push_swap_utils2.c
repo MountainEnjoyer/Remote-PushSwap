@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:59:46 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/09 11:41:47 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/09 20:28:23 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,18 @@ char	**fetch_flag(char **verifs)
 	int		k;
 
 	flags = ft_calloc(len_flag(verifs), sizeof(char));
-	i = 0;
-	k = 0;
-	while (verifs[i])
+	i = -1;
+	k = -1;
+	while (verifs[++i])
 	{
 		j = 0;
 		if (verifs[i][j] == '-' && verifs[i][j + 1] == '-')
 		{
-			while (verifs[i][j])
-			{
-				flags[k] = verifs[i][j];
-				j++;
-				k++;
-			}
+			while (verifs[i][j++])
+				flags[++k] = verifs[i][j];
 		}
-		i++;
+		if (verifs[i][j] == '-' && verifs[i][j + 1] != '-')
+			return (NULL);
 	}
-	flags[k] = '\0';
 	return (ft_split(flags, '-'));
 }
