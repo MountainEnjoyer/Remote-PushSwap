@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/09 20:29:31 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/10 09:38:27 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static int	verif(char **arg)
 			if (arg[i][0] == '-')
 				break ;
 			else if (!ft_isdigit(arg[i][j]) || ft_isalpha(arg[i][j]))
-				return (error(), -1);
+				return (-1);
 			else
 			{
 				k = -1;
 				while (arg[++k])
 					if (i != k
 						&& !ft_strncmp(arg[i], arg[k], ft_strlen(arg[i]) + 1))
-						return (error(), -1);
+						return (-1);
 			}
 		}
 	}
@@ -135,7 +135,7 @@ static char	*concat(char **arg)
 
 int	main(int ac, char **av)
 {
-	if (ac == 1 || ac == 2)
+	if (ac == 1 || (ac - count_flag(av)) == 1)
 		return (error(), 1);
 	if ((ac - count_flag(av)) == 2)
 	{
