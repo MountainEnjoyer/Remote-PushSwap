@@ -6,30 +6,10 @@
 /*   By: mgrossen <mgrossen@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 01:05:42 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/11/10 00:23:20 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/11 16:02:31 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
-void	print_operation(char *operation_str)
-{
-	ft_printf("%s\n", operation_str);
-}
-
-void	swap_toptwo(t_stack *stack)
-{
-	int	temp_index;
-	int	temp_content;
-
-	if (!stack || !stack->next || stack->next == stack)
-		return ;
-	temp_index = stack->index;
-	temp_content = stack->content;
-	stack->index = stack->next->index;
-	stack->content = stack->next->content;
-	stack->next->index = temp_index;
-	stack->next->content = temp_content;
-}
 
 void	sa(t_stack **stack)
 {
