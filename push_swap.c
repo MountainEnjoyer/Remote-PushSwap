@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/10 09:38:27 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/12 19:01:46 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 		i++;
 	}
 	t_stack	*tmp;
-
 	tmp = head;
 	while (tmp != NULL)
 	{
