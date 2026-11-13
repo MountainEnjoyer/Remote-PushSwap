@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/12 19:01:46 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/13 13:04:52 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ static int	flag_verif(char **flags_to_verif)
 	i = 0;
 	while (flags[i])
 	{
-		if (!ft_strncmp(flags[i], "simple", 6))
+		if (ft_strncmp(flags[i], "simple", 6) == 0)
 			ft_printf("simple flag\n");
-		else if (!ft_strncmp(flags[i], "medium", 6))
+		else if (ft_strncmp(flags[i], "medium", 6) == 0)
 			ft_printf("medium flag\n");
-		else if (!ft_strncmp(flags[i], "complex", 7))
+		else if (ft_strncmp(flags[i], "complex", 7) == 0)
 			ft_printf("complex flag\n");
-		else if (!ft_strncmp(flags[i], "adaptative", 10))
+		else if (ft_strncmp(flags[i], "adaptative", 10) == 0)
 			ft_printf("adaptative flag\n");
-		else if (!ft_strncmp(flags[i], "bench", 5))
+		else if (ft_strncmp(flags[i], "bench", 5) == 0)
 			ft_printf("bench flag\n");
 		else
 			return (-1);
@@ -87,6 +87,7 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 		i++;
 	}
 	t_stack	*tmp;
+
 	tmp = head;
 	while (tmp != NULL)
 	{
