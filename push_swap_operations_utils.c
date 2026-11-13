@@ -6,7 +6,7 @@
 /*   By: mgrossen <mgrossen@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 15:22:12 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/11/11 16:02:17 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/13 03:17:49 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -36,10 +36,31 @@ t_stack	*pop_head(t_stack **stack)
 	t_stack	*return_ptr;
 
 	return_ptr = *stack;
+	if ((*stack)->next == *stack)
+	{
+		*stack = NULL;
+		return (return_ptr);
+	}
 	(*stack)->previous->next = (*stack)->next;
 	(*stack)->next->previous = (*stack)->previous;
 	*stack = (*stack)->next;
 	return_ptr->next = return_ptr;
 	return_ptr->previous = return_ptr;
 	return (return_ptr);
+}
+
+void	push_head(t_stack **stack, t_stack *node)
+{
+	if (!(*stack))
+	{
+		node->previous = node;
+		node->next = node;
+		*stack = node;
+		return ;
+	}
+	node->previous = (*stack)->previous;
+	node->next = *stack;
+	(*stack)->previous->next = node;
+	(*stack)->previous = node;
+	*stack = (*stack)->previous;
 }

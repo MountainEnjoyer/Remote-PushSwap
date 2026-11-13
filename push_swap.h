@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/11 16:02:14 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/13 03:19:33 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ char		**locate_v(char **av);
 void		print_operation(char *operation_str);
 void		swap_toptwo(t_stack *stack);
 t_stack		*pop_head(t_stack **stack);
+void		push_head(t_stack **stack, t_stack *node);
 
 #endif
