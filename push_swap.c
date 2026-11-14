@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/14 14:15:36 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 14:17:44 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,6 @@ static char	*concat(char **arg)
 		arr[k++] = ' ';
 		i++;
 	}
-	ft_printf("%s", arr);
 	return (arr);
 }
 

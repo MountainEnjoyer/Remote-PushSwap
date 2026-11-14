@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:59:46 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/14 14:09:20 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 14:22:21 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@ char	**fetch_flag(char **verifs)
 			while (verifs[i][j])
 				flags[++k] = verifs[i][j++];
 		}
-		if (verifs[i][j] == '-' && verifs[i][j + 1] != '-')
+		if ((verifs[i][j] == '-' && verifs[i][j + 1] != '-') ||
+		(verifs[i][j] == '-' && verifs[i][j + 1] == '-' && verifs[i][j + 2] == '-'))
 			return (NULL);
 	}
 	return (ft_split(flags, '-'));
