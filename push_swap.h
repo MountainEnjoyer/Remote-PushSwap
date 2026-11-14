@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/09 11:43:01 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 15:03:33 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int			len_flag(char **flag);
 char		*locate(char **av);
 char		**locate_v(char **av);
 int			count_flag(char **flag);
+t_stack		*indexator(t_stack *head);
+int			len_stack(t_stack *head);
 
 #endif

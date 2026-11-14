@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/14 14:17:44 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 14:34:44 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,7 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 			return (error(), 1);
 		i++;
 	}
-	t_stack	*tmp;
-
-	tmp = head;
-	while (tmp != NULL)
-	{
-		ft_printf("head_a int value from top = %d\n", tmp->content);
-		if (tmp->next == NULL)
-		{
-			tmp = tmp->previous;
-			break ;
-		}
-		tmp = tmp->next;
-	}
-	while (tmp != NULL)
-	{
-		ft_printf("head_a int value from bott = %d\n", tmp->content);
-		tmp = tmp->previous;
-	}
+	indexator(head);
 	return (0);
 }
 
