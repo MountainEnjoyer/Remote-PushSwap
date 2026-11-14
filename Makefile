@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/04 17:14:48 by zchauve           #+#    #+#              #
-#    Updated: 2026/11/07 13:07:15 by zchauve          ###   ########.ch        #
+#    Updated: 2026/11/14 15:16:47 by zchauve          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = push_swap.c \
 	  push_swap_utils1.c \
 	  push_swap_utils2.c \
-	  push_swap_utils3.c
+	  push_swap_utils3.c \
 
 OBJ = $(SRC:.c=.o)
 

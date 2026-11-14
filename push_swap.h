@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/14 15:03:33 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 15:16:55 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <string.h>
+
+# define FLAG_SIMPLE 1
+# define FLAG_MEDIUM 2
+# define FLAG_COMPLEXE 4
+# define FLAG_ADAPTIVE 8
+# define FLAG_BENCH 16
 
 typedef struct s_stack
 {

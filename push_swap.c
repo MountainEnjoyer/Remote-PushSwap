@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/14 14:34:44 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 15:16:07 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,39 @@ static int	flag_verif(char **flags_to_verif)
 {
 	char	**flags;
 	int		i;
+	int		flag;
 
 	flags = fetch_flag(flags_to_verif);
 	if (flags == NULL)
 		return (-1);
-	i = 0;
-	while (i < count_flag(flags_to_verif))
+	i = -1;
+	flag = 0;
+	while (++i < count_flag(flags_to_verif))
 	{
 		if (ft_strncmp(flags[i], "simple", 6) == 0)
-			ft_printf("simple flag\n");
+			flag |= FLAG_SIMPLE;
 		else if (ft_strncmp(flags[i], "medium", 6) == 0)
-			ft_printf("medium flag\n");
+			flag |= FLAG_MEDIUM;
 		else if (ft_strncmp(flags[i], "complex", 7) == 0)
-			ft_printf("complex flag\n");
+			flag |= FLAG_COMPLEXE;
 		else if (ft_strncmp(flags[i], "adaptative", 10) == 0)
-			ft_printf("adaptative flag\n");
+			flag |= FLAG_ADAPTIVE;
 		else if (ft_strncmp(flags[i], "bench", 5) == 0)
-			ft_printf("bench flag\n");
+			flag |= FLAG_BENCH;
 		else
 			return (-1);
-		i++;
 	}
-	return (i);
+	return (flag);
 }
 
 static int	ft_parser(char **stack_a, int lenght, char **av)
 {
 	t_stack	*head;
 	int		i;
+	int		ver_flag;
 
-	if (flag_verif(av) < 0 || verif(stack_a) < 0)
+	ver_flag = flag_verif(av);
+	if (ver_flag < 0 || verif(stack_a) < 0)
 		return (error(), 1);
 	head = NULL;
 	head = ft_stacknew(head, ft_atoi(stack_a[0]));
@@ -86,7 +89,8 @@ static int	ft_parser(char **stack_a, int lenght, char **av)
 			return (error(), 1);
 		i++;
 	}
-	indexator(head);
+	head = indexator(head);
+	ft_ps_logic(head, ver_flag);
 	return (0);
 }
 
