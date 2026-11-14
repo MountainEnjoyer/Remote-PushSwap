@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 16:59:49 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/13 13:04:52 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/14 14:15:36 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ static int	flag_verif(char **flags_to_verif)
 	int		i;
 
 	flags = fetch_flag(flags_to_verif);
-	if (!flags)
+	if (flags == NULL)
 		return (-1);
 	i = 0;
-	while (flags[i])
+	while (i < count_flag(flags_to_verif))
 	{
 		if (ft_strncmp(flags[i], "simple", 6) == 0)
 			ft_printf("simple flag\n");
@@ -114,7 +114,7 @@ static char	*concat(char **arg)
 	size_t	k;
 	char	*arr;
 
-	arr = ft_calloc((ft_strstrlen((const char **)arg) * 2 + 2), sizeof(char));
+	arr = ft_calloc((ft_strstrlen((const char **)arg) * 2 + 1), sizeof(char));
 	if (!arr)
 		return (error(), NULL);
 	i = 0;
@@ -130,6 +130,7 @@ static char	*concat(char **arg)
 		arr[k++] = ' ';
 		i++;
 	}
+	ft_printf("%s", arr);
 	return (arr);
 }
 
@@ -145,8 +146,9 @@ int	main(int ac, char **av)
 	else if (locate_v(av) != NULL)
 	{
 		if (verif(&av[1]) <= 0)
-			return (1);
-		if (ft_parser(ft_split(concat(locate_v(av)), ' '), verif(locate_v(av)), av))
+			return (error(), 1);
+		if (ft_parser(ft_split(concat(locate_v(av)), ' '),
+				verif(locate_v(av)), av))
 			return (1);
 	}
 	return (0);
