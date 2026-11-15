@@ -6,7 +6,7 @@
 #    By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/04 17:14:48 by zchauve           #+#    #+#              #
-#    Updated: 2026/11/14 15:16:47 by zchauve          ###   ########.ch        #
+#    Updated: 2026/11/15 16:34:28 by zchauve          ###   ########.ch        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,11 @@ SRC = push_swap.c \
 	  push_swap_utils1.c \
 	  push_swap_utils2.c \
 	  push_swap_utils3.c \
+	  push_swap_logic1.c \
+	  push_swap_operations1.c \
+	  push_swap_operations2.c \
+	  push_swap_operations3.c \
+	  push_swap_operations_utils.c
 
 OBJ = $(SRC:.c=.o)
 

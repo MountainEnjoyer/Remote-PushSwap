@@ -6,11 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/11/14 01:07:31 by mgrossen         ###   ########.ch       */
-=======
-/*   Updated: 2026/11/14 15:16:55 by zchauve          ###   ########.ch       */
->>>>>>> main
+/*   Updated: 2026/11/15 16:32:29 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +19,6 @@
 # include <stddef.h>
 # include <string.h>
 
-<<<<<<< HEAD
-// Bitmask
-=======
->>>>>>> main
 # define FLAG_SIMPLE 1
 # define FLAG_MEDIUM 2
 # define FLAG_COMPLEXE 4
@@ -55,6 +47,7 @@ char		**locate_v(char **av);
 int			count_flag(char **flag);
 t_stack		*indexator(t_stack *head);
 int			len_stack(t_stack *head);
+void		ft_ps_logic(t_stack *stack_a, int flags);
 
 // PS operations utils
 void		print_operation(char *operation_str);

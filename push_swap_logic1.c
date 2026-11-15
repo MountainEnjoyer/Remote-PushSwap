@@ -6,7 +6,7 @@
 /*   By: mgrossen <mgrossen@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/08 17:51:19 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/11/08 18:25:46 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/15 16:33:42 by zchauve          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -29,7 +29,7 @@ static int	ft_dissorder_mesure(t_stack *stack)
 			pairs++;
 			if (i->content > j->content)
 				mistakes++;
-			j = j->next
+			j = j->next;
 		}
 		i = i->next;
 	}
