@@ -64,7 +64,8 @@ SRC = ft_isascii.c \
 	  ft_putnbr_base.c \
 	  ft_putunbr_fd.c \
 	  ft_putnbr.c \
-	  ft_printf.c
+	  ft_printf.c \
+	  ft_strcmp.c
 
 OBJ = $(SRC:.c=.o)
 
