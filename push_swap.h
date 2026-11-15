@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/13 03:19:33 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/14 01:07:31 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,18 @@ void		print_operation(char *operation_str);
 void		swap_toptwo(t_stack *stack);
 t_stack		*pop_head(t_stack **stack);
 void		push_head(t_stack **stack, t_stack *node);
+
+// PS operations
+void		sa(t_stack **stack);
+void		sb(t_stack **stack);
+void		ss(t_stack **stack_a, t_stack **stack_b);
+void		pa(t_stack **stack_a, t_stack **stack_b);
+void		pb(t_stack **stack_a, t_stack **stack_b);
+void		ra(t_stack **stack_a);
+void		rb(t_stack **stack_b);
+void		rr(t_stack **stack_a, t_stack **stack_b);
+void		rra(t_stack **stack_a);
+void		rrb(t_stack **stack_b);
+void		rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

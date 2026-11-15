@@ -6,7 +6,7 @@
 /*   By: mgrossen <mgrossen@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 03:22:28 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/11/13 03:28:55 by mgrossen         ###   ########.ch       */
+/*   Updated: 2026/11/14 01:01:38 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,4 +28,16 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = (*stack_a)->previous;
 	*stack_b = (*stack_b)->previous;
 	print_operation("rr");
+}
+
+void	rra(t_stack **stack_a)
+{
+	*stack_a = (*stack_a)->next;
+	print_operation("rra");
+}
+
+void	rrb(t_stack **stack_b)
+{
+	*stack_b = (*stack_b)->next;
+	print_operation("rrb");
 }
