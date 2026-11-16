@@ -6,7 +6,7 @@
 /*   By: mgrossen <mgrossen@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/08 17:51:19 by mgrossen          #+#    #+#             */
-/*   Updated: 2026/11/15 16:33:42 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/16 01:22:46 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -39,8 +39,12 @@ static int	ft_dissorder_mesure(t_stack *stack)
 
 void	ft_ps_logic(t_stack *stack_a, int flags)
 {
-	int	dissorder;
+	int		dissorder;
+	t_stack	*stack_b;
 
+	stack_b = malloc(sizeof(t_stack));
+	if (!stack_b)
+		return ;
 	dissorder = -1;
 	if (flags & (FLAG_BENCH | FLAG_ADAPTIVE))
 		dissorder = ft_dissorder_mesure(stack_a);
@@ -61,3 +65,4 @@ void	ft_ps_logic(t_stack *stack_a, int flags)
 	}
 
 }
+
