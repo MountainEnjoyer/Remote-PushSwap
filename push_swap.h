@@ -6,7 +6,7 @@
 /*   By: zchauve <zchauve@student.42.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 17:03:02 by zchauve           #+#    #+#             */
-/*   Updated: 2026/11/15 16:32:29 by zchauve          ###   ########.ch       */
+/*   Updated: 2026/11/17 21:16:11 by mgrossen         ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ void		rr(t_stack **stack_a, t_stack **stack_b);
 void		rra(t_stack **stack_a);
 void		rrb(t_stack **stack_b);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
+
+// Algorithms
+void		ft_simple(t_stack *stack_a, t_stack *stack_b);
 
 #endif
